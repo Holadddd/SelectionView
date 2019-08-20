@@ -28,7 +28,7 @@ import UIKit
     
     @objc optional func didSelectAt(_ selectionView: SelectionView, index: Int)
     
-    @objc optional func selectionEnable(_ selectionView: SelectionView)
+    @objc optional func selectionEnable(_ selectionView: SelectionView, index: Int) -> Bool
 }
 
 class SelectionView: UIView {
@@ -114,6 +114,7 @@ class SelectionView: UIView {
         moveIndicator(sender)
 
         didSelect(sender: sender)
+        btnEnable(sender: sender)
     }
     
     func moveIndicator(_ sender: UIButton) {
@@ -130,4 +131,10 @@ class SelectionView: UIView {
         delegate?.didSelectAt?(self, index: index)
     }
     
+    func btnEnable(sender: UIButton) {
+        
+        let tag = sender.tag
+        sender.isEnabled = delegate?.selectionEnable?(self, index: tag) ?? true
+        print(delegate?.selectionEnable?(self, index: tag))
+    }
 }

@@ -33,6 +33,16 @@ class ViewController: UIViewController, SelectionViewDataSource, SelectionViewDe
         print("This is \(index)")
     }
     
+    func selectionEnable(_ selectionView: SelectionView, index: Int) -> Bool {
+        switch index {
+        case 0:
+            return true
+        case 1:
+            return false
+        default:
+            return true
+        }
+    }
     
     
     var selectionView = SelectionView()
