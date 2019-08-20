@@ -11,9 +11,9 @@ import UIKit
 
 @objc protocol SelectionViewDataSource: AnyObject {
     
-    func numberOfSelection(_ selectionView: SelectionView) -> Int
+    @objc func numberOfSelection(_ selectionView: SelectionView) -> Int
     
-    func selectionText(selectionView: SelectionView, indexPath: IndexPath) -> String
+    func selectionText(selectionView: SelectionView, index: Int) -> String
     
     @objc optional func selectionIndicatorColor() -> UIColor
 
@@ -26,7 +26,7 @@ import UIKit
 
 @objc protocol SelectionViewDelegate: AnyObject {
     
-    @objc optional func didSelectAt(_ selectionView: SelectionView, indexPath: IndexPath)
+    @objc optional func didSelectAt(_ selectionView: SelectionView, index: Int)
     
     @objc optional func selectionEnable(_ selectionView: SelectionView)
 }
@@ -53,7 +53,7 @@ class SelectionView: UIView {
     }
     
     func reloadDataSource() {
-        guard let numberOfSelection = dataSource?.numberOfSelection(self) else { fatalError() }
+        let numberOfSelection = dataSource?.numberOfSelection(self) ?? 2
         setBtn(number: numberOfSelection)
         
     }
@@ -71,8 +71,8 @@ class SelectionView: UIView {
             
             btn.frame = CGRect(x: ((width/numberFloat)*indexFloat), y: 0, width: (width/numberFloat), height: height-1)
             
-            let indexPath = IndexPath(row: index, section: 0)
-            guard let title = dataSource?.selectionText(selectionView: self, indexPath: indexPath) else { return }
+            
+            guard let title = dataSource?.selectionText(selectionView: self, index: index) else { return }
             
             //titleTextColor 預設 白
             let titleTextColor = dataSource?.selectionBtnTitleTextColor?() ?? UIColor.white
@@ -88,7 +88,7 @@ class SelectionView: UIView {
             btn.backgroundColor = backgroundColor
             
             btn.addTarget(self, action: #selector(SelectionView.didTouchBtn), for: .touchUpInside)
-            
+            btn.tag = index
             self.addSubview(btn)
             
             btns.append(btn)
@@ -125,8 +125,9 @@ class SelectionView: UIView {
     }
     
     func didSelect(sender: UIButton) {
-        print(sender)
-       
+        
+        let index = sender.tag
+        delegate?.didSelectAt?(self, index: index)
     }
     
 }

@@ -19,8 +19,8 @@ class ViewController: UIViewController, SelectionViewDataSource, SelectionViewDe
         return UIFont.init(name: "NotoSansChakma-Regular", size: 10)!
     }
     
-    func selectionText(selectionView: SelectionView, indexPath: IndexPath) -> String {
-        let info = titleArr[indexPath.row]
+    func selectionText(selectionView: SelectionView, index: Int) -> String {
+        let info = titleArr[index]
         return info
     }
     
@@ -29,13 +29,15 @@ class ViewController: UIViewController, SelectionViewDataSource, SelectionViewDe
     }
     
     //delegate
-    
+    func didSelectAt(_ selectionView: SelectionView, index: Int) {
+        print("This is \(index)")
+    }
     
     
     
     var selectionView = SelectionView()
     
-    var titleArr: [String] = ["Red", "Yellow"]
+    var titleArr: [String] = ["Red", "Yellow", "Green"]
     
     let width = UIScreen.main.bounds.width
     
