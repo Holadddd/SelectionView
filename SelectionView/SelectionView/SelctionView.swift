@@ -100,7 +100,7 @@ class SelectionView: UIView {
         underLine.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: width/CGFloat(number), height: 1))
         
         //IndicatorColor 預設為藍色
-        let indicatorColor = dataSource?.selectionIndicatorColor?() ?? UIColor.red
+        let indicatorColor = dataSource?.selectionIndicatorColor?() ?? UIColor.blue
         underLine.backgroundColor = indicatorColor
         
         

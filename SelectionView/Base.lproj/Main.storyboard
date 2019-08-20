@@ -17,9 +17,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fu-wd-2Xe" customClass="SelectionView" customModule="SelectionView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="rdW-4E-dGA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVP-aj-PhY">
+                                <rect key="frame" x="0.0" y="144" width="414" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="1Mf-em-9GQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuz-tZ-QIK" customClass="SelectionView" customModule="SelectionView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="244" width="414" height="100"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="8h9-qy-e8z"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQE-Ka-iBF">
+                                <rect key="frame" x="0.0" y="344" width="414" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="OqW-FN-1d2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OQE-Ka-iBF" firstAttribute="top" secondItem="fuz-tZ-QIK" secondAttribute="bottom" id="6V3-og-Lew"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tVP-aj-PhY" secondAttribute="trailing" id="7LK-2J-gzn"/>
+                            <constraint firstItem="0fu-wd-2Xe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8n7-ZS-PrH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0fu-wd-2Xe" secondAttribute="trailing" id="8vj-eC-y8M"/>
+                            <constraint firstItem="fuz-tZ-QIK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AAg-aH-kza"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fuz-tZ-QIK" secondAttribute="trailing" id="AKq-4u-ftd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OQE-Ka-iBF" secondAttribute="trailing" id="CXo-xE-rS4"/>
+                            <constraint firstItem="OQE-Ka-iBF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gh3-B7-GJb"/>
+                            <constraint firstItem="fuz-tZ-QIK" firstAttribute="top" secondItem="tVP-aj-PhY" secondAttribute="bottom" id="cVD-eH-6s4"/>
+                            <constraint firstItem="tVP-aj-PhY" firstAttribute="top" secondItem="0fu-wd-2Xe" secondAttribute="bottom" id="foZ-5F-Psd"/>
+                            <constraint firstItem="0fu-wd-2Xe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qnt-fh-jj8"/>
+                            <constraint firstItem="tVP-aj-PhY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="t2A-eX-dJF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="selectionOneColorView" destination="tVP-aj-PhY" id="DAE-Gb-iT7"/>
+                        <outlet property="selectionTwoColorView" destination="OQE-Ka-iBF" id="4di-jQ-x7R"/>
+                        <outlet property="selectionViewOne" destination="0fu-wd-2Xe" id="bla-iS-BWo"/>
+                        <outlet property="selectionViewTwo" destination="fuz-tZ-QIK" id="ap7-fc-tyb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
