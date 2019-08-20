@@ -19,7 +19,7 @@ import UIKit
 
     @objc optional func selectionBtnTitleTextColor() -> UIColor
 
-    @objc optional func selectionTextFont() -> UIFont
+    @objc optional func selectionTextFont() -> UIFont?
     
     @objc optional func selectionViewBackgroundColor() -> UIColor
 }
@@ -122,7 +122,7 @@ class SelectionView: UIView {
     
     func moveIndicator(_ sender: UIButton) {
         
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.3) {
             let frame = CGPoint(x: sender.frame.minX, y: 0)
             self.underLine.frame.origin = frame
         }

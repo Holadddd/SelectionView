@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         selectionViewOne.dataSource = self
         selectionViewTwo.delegate = self
         selectionViewTwo.dataSource = self
+        selectionOneColorView.backgroundColor = .red
+        selectionTwoColorView.backgroundColor = .red
     }
 
 
@@ -59,10 +61,24 @@ extension ViewController: SelectionViewDataSource {
         default:
             return ""
         }
-        
     }
     
+    func selectionIndicatorColor() -> UIColor {
+        return .red
+    }
     
+    func selectionBtnTitleTextColor() -> UIColor {
+        return .green
+    }
+    
+    func selectionTextFont() -> UIFont? {
+        
+        return UIFont(name: "NotoSansChakma-Regular", size: 24)
+    }
+    
+    func selectionViewBackgroundColor() -> UIColor {
+        return UIColor.lightGray
+    }
 }
 
 extension ViewController: SelectionViewDelegate {
