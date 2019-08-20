@@ -8,48 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, SelectionViewDataSource, SelectionViewDelegate {
-    
-    //datasource
-    func selectionIndicatorColor() -> UIColor {
-        return .green
-    }
-    
-    func selectionTextFont() -> UIFont {
-        return UIFont.init(name: "NotoSansChakma-Regular", size: 10)!
-    }
-    
-    func selectionText(selectionView: SelectionView, index: Int) -> String {
-        let info = titleArr[index]
-        return info
-    }
-    
-    func numberOfSelection(_ selectionView: SelectionView) -> Int {
-        return titleArr.count
-    }
-    
-    //delegate
-    func didSelectAt(_ selectionView: SelectionView, index: Int) {
-        print("This is \(index)")
-    }
-    
-    func selectionEnable(_ selectionView: SelectionView, index: Int) -> Bool {
-        switch index {
-        case 0:
-            return true
-        case 1:
-            return false
-        default:
-            return true
-        }
-    }
-    
-    
-    var selectionView = SelectionView()
-    
-    var titleArr: [String] = ["Red", "Yellow", "Green"]
-    
-    let width = UIScreen.main.bounds.width
+class ViewController: UIViewController {
     
     
     
@@ -57,12 +16,7 @@ class ViewController: UIViewController, SelectionViewDataSource, SelectionViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectionView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: width, height: 100))
-        selectionView.backgroundColor = .red
-        selectionView.dataSource = self
-        selectionView.delegate = self
-        self.view.addSubview(selectionView)
-        // Do any additional setup after loading the view.
+        
     }
 
 

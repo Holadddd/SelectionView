@@ -84,7 +84,7 @@ class SelectionView: UIView {
             btn.setTitle(title, for: .normal)
             
             //selectionViewBackgroundColor 預設 灰
-            let backgroundColor = dataSource?.selectionViewBackgroundColor?() ?? UIColor.gray
+            let backgroundColor = dataSource?.selectionViewBackgroundColor?() ?? UIColor.black
             btn.backgroundColor = backgroundColor
             
             btn.addTarget(self, action: #selector(SelectionView.didTouchBtn), for: .touchUpInside)
