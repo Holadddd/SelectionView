@@ -95,4 +95,18 @@ extension ViewController: SelectionViewDelegate {
         }
     }
     
+    func selectionEnable(_ selectionView: SelectionView, index: Int) -> Bool {
+        let lastBtn = selectionOne.count - 1
+        switch selectionView {
+        case selectionViewOne:
+            
+            return true
+        case selectionViewTwo:
+        
+            return !selectionViewOne.btns[lastBtn].isSelected
+        default:
+            return true
+        }
+    }
+    
 }

@@ -111,9 +111,12 @@ class SelectionView: UIView {
     
     
     @objc func didTouchBtn(_ sender: UIButton){
-        moveIndicator(sender)
-
-        didSelect(sender: sender)
+        for btn in btns{
+            btn.isSelected = false
+            btn.isEnabled = true
+        }
+        print(btns.count)
+        sender.isSelected = true
         btnEnable(sender: sender)
     }
     
@@ -132,9 +135,13 @@ class SelectionView: UIView {
     }
     
     func btnEnable(sender: UIButton) {
-        
+        print("enable")
         let tag = sender.tag
         sender.isEnabled = delegate?.selectionEnable?(self, index: tag) ?? true
         print(delegate?.selectionEnable?(self, index: tag))
+        if sender.isEnabled {
+            moveIndicator(sender)
+            didSelect(sender: sender)
+        }
     }
 }
