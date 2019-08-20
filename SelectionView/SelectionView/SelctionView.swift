@@ -102,9 +102,7 @@ class SelectionView: UIView {
         //IndicatorColor 預設為藍色
         let indicatorColor = dataSource?.selectionIndicatorColor?() ?? UIColor.blue
         underLine.backgroundColor = indicatorColor
-        
-        
-        
+
         indicator.addSubview(underLine)
     }
     
@@ -138,7 +136,7 @@ class SelectionView: UIView {
         print("enable")
         let tag = sender.tag
         sender.isEnabled = delegate?.selectionEnable?(self, index: tag) ?? true
-        print(delegate?.selectionEnable?(self, index: tag))
+        print(delegate?.selectionEnable?(self, index: tag) as Any)
         if sender.isEnabled {
             moveIndicator(sender)
             didSelect(sender: sender)

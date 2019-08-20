@@ -15,14 +15,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var selectionViewTwo: SelectionView!
     @IBOutlet weak var selectionTwoColorView: UIView!
-    
-    
+
     var selectionOne = ["Red", "Yellow"]
     var selectionTwo = ["Red", "Yellow", "Blue"]
-    
-    
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         selectionViewOne.delegate = self
@@ -32,10 +28,8 @@ class ViewController: UIViewController {
         selectionOneColorView.backgroundColor = .red
         selectionTwoColorView.backgroundColor = .red
     }
-
-
+    
 }
-
 
 extension ViewController: SelectionViewDataSource {
     func numberOfSelection(_ selectionView: SelectionView) -> Int {
@@ -64,7 +58,7 @@ extension ViewController: SelectionViewDataSource {
     }
     
     func selectionIndicatorColor() -> UIColor {
-        return .red
+        return .green
     }
     
     func selectionBtnTitleTextColor() -> UIColor {
